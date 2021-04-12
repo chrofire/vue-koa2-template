@@ -1,6 +1,9 @@
 <template>
-    <div>
+    <div class="a">
         test{{$store.state.a}}
+        <div class="b">
+            1
+        </div>
     </div>
 </template>
 
@@ -9,3 +12,11 @@ export default {
         
 }
 </script>
+
+<style lang="scss" scoped>
+.a {
+    .b {
+        color: red;
+    }
+}
+</style>
