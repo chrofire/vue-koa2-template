@@ -18,5 +18,19 @@ module.exports = {
     syncConfig: {
         // force: true,
         alter: true
+    },
+    jwtInfo: {
+        secret: 'secret',
+        options: {
+            expiresIn: '1h'
+        },
+        unlessParams: {
+            path: [
+                /^\/$/, // /
+                /^\/api\/user\/login/, // /api/user/login
+                /^\/api\/user\/create/, // /api/user/create
+                /\/isExistsUser/ // /isExistsUser
+            ]
+        }
     }
 }

@@ -4,6 +4,7 @@ const cors = require('@koa/cors')
 const koaStatic = require('koa-static')
 const jsonError = require('./middlewares/jsonErrorResponse')
 const logger = require('koa-logger')
+const { auth } = require('./middlewares/auth')
 const path = require('path')
 const { koaPort } = require('../config')
 const app = new Koa()
@@ -33,6 +34,9 @@ app.use(
         }
     })
 )
+
+// 鉴权
+app.use(auth)
 
 // router 配置路由
 const router = require('./routes')
