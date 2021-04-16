@@ -3,6 +3,12 @@ const router = new Router()
 const userController = require('../controllers/user')
 
 /**
+ * @route POST /api/user/getRole
+ * @desc 用户getRole
+ */
+router.post('/getRole', userController.getRole)
+ 
+/**
  * @route POST /api/user/create
  * @desc 用户注册接口
  */

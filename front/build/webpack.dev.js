@@ -7,7 +7,16 @@ const devConfig = {
     mode: 'development',
     devtool: 'source-map',
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: true,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:3000',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': '/api'
+                }
+            },
+        }
     },
     module: {
         rules: [

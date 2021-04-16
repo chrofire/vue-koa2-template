@@ -135,7 +135,9 @@ module.exports = {
                 allowUsingIterationVar: false
             }
         ],
-
+        // 允许props修改
+        'vue/no-mutating-props': 0,
+        
         // 组件顺序
         'vue/order-in-components': [
             'error',

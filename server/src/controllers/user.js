@@ -3,6 +3,10 @@ const userValidator = require('../validators/user')
 const BaseValidator = require('../validators/baseValidator')
 const userService = require('../services/user')
 class UserController {
+    async getRole (ctx) {
+        const user = ctx.state.user
+        ctx.body = new SuccessModel('获取成功', user)
+    }
     async create (ctx) {
         try {
             // 校验参数
