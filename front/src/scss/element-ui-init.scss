@@ -1,0 +1,10 @@
+// 主颜色
+$main-color: #409EFF;
+
+//按钮标准样式
+.el-button.el-button--mini,
+.el-button.el-button--medium {
+    border-radius: 2px;
+    min-width: 80px;
+    padding: 7px 10px;
+}

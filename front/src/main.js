@@ -14,6 +14,9 @@ Vue.prototype.$http = http
 import lodash from 'lodash'
 Vue.prototype._ = lodash
 
+import whiteMessage from './utils/whiteMessage'
+Vue.prototype.$message = whiteMessage
+
 import filters from './filters'
 Vue.use(filters)
 

@@ -3,7 +3,7 @@
         <div class="title">管理系统</div>
         <div class="info">
             <div class="user-info">
-                {{user ? user.name : null}} {{user ? userTypeMap[user.userType] : null}}
+                {{user ? user.username : null}} {{user ? userTypeMap[user.userType] : null}}
             </div>
             <div class="option-box">
                 <el-dropdown
