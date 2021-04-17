@@ -32,5 +32,17 @@ router.post('/login', userController.login)
  */
 router.get('/select', userController.select)
 
+/**
+ * @route POST /api/user/updateUserPassword
+ * @desc 修改用户密码
+ */
+router.post('/updateUserPassword', userController.updateUserPassword)
+
+/**
+ * @route POST /api/user/update
+ * @desc 修改用户
+ */
+router.post('/update', userController.updateUser)
+
 
 module.exports = router

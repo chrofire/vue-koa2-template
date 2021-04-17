@@ -3,7 +3,10 @@ const importData = {
 
     BasePage: () => import ('@/views/BasePage/index.vue'),
 
-    Dashboard: () => import ('@/views/Dashboard/index.vue')
+    Dashboard: () => import ('@/views/Dashboard/index.vue'),
+
+    System: () => import ('@/views/System/index.vue'),
+    Account: () => import ('@/views/System/Account/index.vue')
 }
 
 export const _adminRoutes = [
@@ -25,6 +28,25 @@ export const _adminRoutes = [
                     icon: 'el-icon-s-grid',
                     fullPath: '/main/dashboard'
                 }
+            },
+            {
+                path: 'system',
+                component: 'System',
+                meta: {
+                    title: '系统管理',
+                    icon: 'el-icon-s-tools',
+                    fullPath: '/main/system'
+                },
+                children: [
+                    {
+                        path: 'account',
+                        component: 'Account',
+                        meta: {
+                            title: '帐号管理',
+                            fullPath: '/main/system/account'
+                        }
+                    }
+                ]
             }
         ]
     },

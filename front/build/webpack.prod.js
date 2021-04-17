@@ -1,3 +1,4 @@
+const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const baseConfig = require('./webpack.base')
@@ -5,6 +6,11 @@ const { merge } = require('webpack-merge')
 
 const prodConfig = {
     mode: 'production',
+    output: {
+        path: path.resolve(__dirname, '../dist'),
+        filename: 'js/[name].[hash:7].js',
+        publicPath: '/'
+    },
     module: {
         rules: [
             {
@@ -14,7 +20,9 @@ const prodConfig = {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].[hash:7].css',
+        }),
         new CleanWebpackPlugin()
     ]
 }

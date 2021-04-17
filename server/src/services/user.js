@@ -3,7 +3,7 @@ const { formatDate } = require('../utils/formatDate')
 const { encrypt, decrypt } = require('../utils/bcrypt')
 const jsonwebtoken = require('jsonwebtoken')
 const { jwtInfo } = require('../../config')
-
+const { Op } = require('sequelize')
 class UserService {
     async createUser (data) {
         try {
@@ -85,10 +85,16 @@ class UserService {
     }
     async selectAll (data) {
         try {
-            const { pageNum, pageSize } = data
+            const { username = ``, pageNum, pageSize } = data
+            let where = {
+                username: {
+                    [Op.substring]: username
+                }
+            }
             const { count, rows } = await User.findAndCountAll({
                 offset: (pageNum - 1) * pageSize,
                 limit: pageSize,
+                where,
                 attributes: {
                     exclude: ['password']
                 }
@@ -126,6 +132,22 @@ class UserService {
                     message: '旧密码不匹配'
                 })
             }
+        } catch (e) {
+            return Promise.reject({
+                message: e.name
+            })
+        }
+    }
+    async updatePassword (data) {
+        try {
+            let { id, password } = data
+            password = encrypt(password)
+            await User.update({ password }, {
+                where: {
+                    id
+                }
+            })
+            return true
         } catch (e) {
             return Promise.reject({
                 message: e.name

@@ -1,11 +1,13 @@
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const baseConfig = require('./webpack.base')
 const { merge } = require('webpack-merge')
 
 const devConfig = {
     mode: 'development',
     devtool: 'source-map',
+    output: {
+        publicPath: '/'
+    },
     devServer: {
         historyApiFallback: true,
         proxy: {
@@ -38,9 +40,7 @@ const devConfig = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../index.html')
-        })
+        
     ]
 }
 

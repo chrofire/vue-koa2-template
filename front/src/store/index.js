@@ -6,6 +6,7 @@ import jwtDecode from 'jwt-decode'
 
 // modules
 import enter from '@/store/modules/enter'
+import system from '@/store/modules/system'
 
 export default new Vuex.Store({
     state: {
@@ -44,6 +45,7 @@ export default new Vuex.Store({
 
     },
     modules: {
-        enter
+        enter,
+        system
     }
 })
