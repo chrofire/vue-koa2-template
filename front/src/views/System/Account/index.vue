@@ -1,5 +1,5 @@
 <template>
-    <div class="building" v-loading="loading">
+    <div class="account" v-loading="loading">
         <TableComp
             :pageDataProps="pageDataProps"
             @paginationChange="paginationChange"
@@ -320,7 +320,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.building {
+.account {
     // display: flex;
     // flex-direction: column;
 }

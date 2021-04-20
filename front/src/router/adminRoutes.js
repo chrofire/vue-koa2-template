@@ -4,6 +4,8 @@ const importData = {
     BasePage: () => import ('@/views/BasePage/index.vue'),
 
     Dashboard: () => import ('@/views/Dashboard/index.vue'),
+    
+    TestPage: () => import ('@/views/TestPage/index.vue'),
 
     System: () => import ('@/views/System/index.vue'),
     Account: () => import ('@/views/System/Account/index.vue')
@@ -27,6 +29,16 @@ export const _adminRoutes = [
                     title: 'Dashboard',
                     icon: 'el-icon-s-grid',
                     fullPath: '/main/dashboard'
+                }
+            },
+            {
+                path: 'testpage',
+                name: 'TestPage',
+                component: 'TestPage',
+                meta: {
+                    title: 'TestPage',
+                    icon: 'el-icon-s-grid',
+                    fullPath: '/main/testpage'
                 }
             },
             {
